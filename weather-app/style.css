@@ -1,0 +1,43 @@
+*{
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    box-sizing:border-box;
+}
+
+body {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: lightblue;
+}
+
+.container {
+    width: 400px;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    padding: 28px 32px;
+    border-radius: 50px;
+    overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 18px;
+    transition: 0.6s ease-out;    
+}
+
+input[type='text'] {
+    font-size: 18px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.search-box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+
