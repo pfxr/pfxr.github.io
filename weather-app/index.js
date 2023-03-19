@@ -32,7 +32,7 @@ function handleKeyPress(e){
                 var img = document.createElement('img');
                 console.log(data.results[i]);
                 
-                img.src="https://assets.open-meteo.com/images/country-flags/"+data.results[i].country_code.toLowerCase()+".svg";
+                img.src="http://assets.open-meteo.com/images/country-flags/"+data.results[i].country_code.toLowerCase()+".svg";
                 img.height=24;
                 img.textContent = data.results[i].name;
                 img.title = data.results[i].country;
