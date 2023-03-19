@@ -32,7 +32,7 @@ function handleKeyPress(e){
                 var img = document.createElement('img');
                 console.log(data.results[i]);
                 
-                img.src="http://assets.open-meteo.com/images/country-flags/"+data.results[i].country_code.toLowerCase()+".svg";
+                img.src="https://github.com/HatScripts/circle-flags/"+data.results[i].country_code.toLowerCase()+".svg";
                 img.height=24;
                 img.textContent = data.results[i].name;
                 img.title = data.results[i].country;
