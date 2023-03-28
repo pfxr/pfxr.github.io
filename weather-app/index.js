@@ -4,12 +4,47 @@ let not_found = document.getElementById("not-found");
 let location_img = document.getElementById("location_img");
 let location_select = document.getElementById("location-select");
 
+// Set stuff that should not be visible
 weather_details.style.display = "none";
 not_found.style.display="none";
 location_select.style.display="none";
 
-var x;
+var debug;
 
+async function getData(query) {
+    fetch(query).then((response) => response.json()).then(data =>{
+        debug=data;
+        console.log(data);
+        console.log("Pedro");
+    });
+}
+
+location_select.addEventListener('click', function(e) {
+    e.preventDefault();
+    urlParams = new URLSearchParams(window.location.search);
+
+    // Acquire parameters from url
+    const latitude = urlParams.get('latitude');
+    const longitude = urlParams.get('longitude');
+    console.log(latitude);
+    console.log(longitude);
+
+    // Build the query
+    /*
+    var query =  "https://api.open-meteo.com/v1/forecast"
+        query += "?latitude=" + latitude;
+        query += "&longitude=" + longitude;
+        query +="&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m";
+    */
+    var query = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current_weather=true&hourly=temperature_2m,relativehumidity_2m,windspeed_10m"
+
+    console.log(query);
+    getData(query);
+
+});
+
+
+// Handle keys pressed
 function handleKeyPress(e){
     var key=e.keyCode || e.which;
 
@@ -55,20 +90,25 @@ function handleKeyPress(e){
                     img.title = data.results[i].country;
 
                     small.className="text-muted"
-                    if("admin1" in data.results[i]) {
-                        var details = document.createTextNode(" "+data.results[i].admin1);
-                    } else {
-                        var details = document.createTextNode(" "+data.results[i].country);
-                    }
 
+                    var country = data.results[i].country;
+                    
+                    // Add selected city details 
+                    let str = " "+`${country}`+" ("+ `${data.results[i].latitude}; ${data.results[i].longitude}`+ ")";
+                    var details = document.createTextNode(str);
                     small.appendChild(details);
 
                     a.className="dropdown-item"
-                    a.href="#"
+                    a.href ="?latitude=" + `${data.results[i].latitude}`;
+                    a.href+="&longitude=" + `${data.results[i].longitude}`;
+
+
                     a.appendChild(img);
                     a.appendChild(document.createTextNode(" "+data.results[i].name));
                     a.appendChild(small);
 
+                    li.className="city"+i;
+                    li.data_input=i;
                     li.append(a);
                     location_select.appendChild(li);
          

@@ -64,3 +64,11 @@ body {
     color: #06283D;
     font-size: 28px;
 }
+
+.not-found {
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    justify-content: space-between;
+}
