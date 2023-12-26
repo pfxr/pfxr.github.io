@@ -56,6 +56,7 @@ function handleKeyPress(e){
     
     // Reset not found
     not_found.style.display="none";
+    
 
     // If enter key
     if (key == 13) {
