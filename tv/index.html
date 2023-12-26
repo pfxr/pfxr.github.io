@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>IFrame Link Changer</title>
+
+</head>
+<body>
+
+    <label for="urlDropdown">Select a website:</label>
+    <select id="urlDropdown">
+        <option value="http://tvdesporto.live/play.php?canal=benficatv&height=800&width=1200">B</option>
+        <option value="http://tvdesporto.live/play.php?canal=sporttv&height=800&width=1200">S1</option>
+        <option value="http://tvdesporto.live/play.php?canal=sporttv2&height=800&width=1200">S2</option>
+        <option value="http://tvdesporto.live/play.php?canal=sporttv3&height=800&width=1200">S3</option>
+        <option value="http://tvdesporto.live/play.php?canal=sporttv4&height=800&width=1200">S4</option>
+        <option value="http://tvdesporto.live/play.php?canal=elevensports&height=800&width=1200">E1</option>
+        <option value="http://tvdesporto.live/play.php?canal=elevensports2&height=800&width=1200">E2</option>
+        <option value="http://tvdesporto.live/play.php?canal=elevensports3&height=800&width=1200">E3</option>
+        <option value="http://tvdesporto.live/play.php?canal=elevensports4&height=800&width=1200">E4</option>
+    </select>
+    <br>
+    <iframe id="myIFrame" width="1200" height="800" src="http://tvdesporto.live/play.php?canal=benficatv&height=800&width=1200" frameborder="10" allowfullScreen></iframe>
+
+    <script>
+        // Get references to the dropdown and the iframe
+        var urlDropdown = document.getElementById("urlDropdown");
+        var myIFrame = document.getElementById("myIFrame");
+
+        // Add an event listener to the dropdown to change the iframe source
+        urlDropdown.addEventListener("change", function() {
+            var selectedURL = urlDropdown.value;
+            myIFrame.src = selectedURL;
+        });
+
+        window.open = function(url, name, features) {
+        	console.log("Preventing page to be launched");
+        	return null;
+        }
+
+    </script>
+</body>
+</html>
