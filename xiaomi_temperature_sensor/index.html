@@ -3,25 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>BLE Device Interaction</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-  }
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-</style>
+<title>Device Interface</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<button id="connectButton">Connect to BLE Device</button>
-
-<script  src="index.js"></script>
-
+      <div class="device">
+        <div class="screen">
+          <div id="temp" class="temperature seven-seg"></div>
+          <div id="tempC" class="temperatureC seven-seg"></div>
+          <div id="humid" class="humidity seven-seg"> </div>
+          <div id="bat" class="battery seven-seg"></div>
+        </div>
+      </div>
+      <div id="btn_div">
+        <button class="connect_btn" id="connectButton"> Connect </button>
+        <p hidden id="loader" class="loader"> </p>
+      </div>
 </body>
+<script  src="index.js"></script>
 </html>
 
